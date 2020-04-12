@@ -3,10 +3,8 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-
-require('./bootstrap');
-
-window.Vue = require('vue');
+import './bootstrap';
+import router from 'routers/app_router';
 
 /**
  * The following block of code may be used to automatically register your
@@ -19,6 +17,14 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+import Vue from 'vue';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {FontAwesomeIcon, FontAwesomeLayers} from '@fortawesome/vue-fontawesome';
+
+library.add();
+
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+Vue.component('font-awesome-layers', FontAwesomeLayers);
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**
@@ -29,4 +35,5 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    router
 });
