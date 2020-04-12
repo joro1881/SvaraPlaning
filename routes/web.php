@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/votingroom', 'HomeController@votingRoom')->name('voting_room');
+Route::get('/history', 'HomeController@history')->name('history');
+Route::get('/scrumplaning', 'HomeController@scrumPlaning')->name('scrum_planing');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
