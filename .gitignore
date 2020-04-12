@@ -13,3 +13,4 @@ npm-debug.log
 yarn-error.log
 /docker/data/db/
 /docker/etc/log/
+/docker/data/db/mysql/
