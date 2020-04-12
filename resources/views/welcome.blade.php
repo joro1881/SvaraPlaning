@@ -61,9 +61,14 @@
             </div>
         </nav>
 
-        <div class="container shadow-lg mx-auto bg-white mt-24 md:mt-18">
-            <div id="app">
-                dzag
+        <div class="container mx-auto mt-24 md:mt-18">
+            <div>
+                <h2>Hello mates, are you ready to plan some stuff?</h2>
+                <h2>Are you ready to bet on it ? </h2>
+                <br>
+                <p>
+                    <img class="w-9/12" src="{{asset('images/shallwe.gif')}}" alt="animated">
+                </p>
             </div>
         </div>
     </body>

@@ -1,7 +1,7 @@
 window._ = require('lodash');
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import VeeValidate from 'vee-validate';
+import * as VeeValidate from 'vee-validate';
 
 window.Vue = Vue;
 Vue.use(VueRouter, VeeValidate);
@@ -34,6 +34,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  * for events that are broadcast by Laravel. Echo and event broadcasting
  * allows your team to easily build robust real-time web applications.
  */
+
+window.Form = Form;
 
 // import Echo from 'laravel-echo';
 
