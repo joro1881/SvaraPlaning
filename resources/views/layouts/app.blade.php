@@ -19,62 +19,80 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <body class="bg-gray-400 font-sans tracking-normal" style="line-height: 0;">
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+    <div id="app" v-cloak>
+        <nav class="flex items-center justify-between flex-wrap bg-gray-800 p-6 fixed w-full z-10 top-0">
+        <div class="flex items-center flex-shrink-0 text-white mr-6">
+            <a class="text-white no-underline hover:text-white hover:no-underline" href="{{url('/')}}">
+                <span class="text-2xl pl-2"><i class="em em-grinning"></i>Svara Planing</span>
+            </a>
+        </div>
 
-                    </ul>
+        <div class="block lg:hidden">
+            <button id="nav-toggle"
+                    class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-white hover:border-white">
+                <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>
+                        Menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+                </svg>
+            </button>
+        </div>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+        <div class="w-full flex-grow lg:flex items-center w-auto block" id="nav-content">
+            <ul class="list-reset lg:flex justify-end flex-1 items-center">
+                <li class="mr-3 pt-2">
+                    <a class="inline-block px-4 text-white no-underline" href="{{route('voting_room')}}">Voting Room</a>
+                </li>
+                <li class="mr-3 pt-2">
+                    <a class="inline-block px-4 text-white no-underline" href="{{route('history')}}">History</a>
+                </li>
+                <li class="mr-3 pt-2">
+                    <a class="inline-block px-4 text-white no-underline" href="{{route('scrum_planing')}}">Scrum
+                        Planing</a>
+                </li>
+                @guest
+                    <li class="mr-3 pt-2">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline px-4"
+                           href="{{route('login')}}">{{__('Login')}}</a>
+                    </li>
+                    @if(Route::has('register'))
+                        <li class="mr-3 pt-2">
+                            <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline px-4"
+                               href="{{route('register')}}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+                @else
+                    <li class="mr-3 pt-2">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline px-4"
+                           href="{{url('/home')}}">{{__('Home')}}</a>
+                    </li>
+                    <li class="mr-3 pt-2">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline px-4"
+                           v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+                        <div>
+                            <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline px-4" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
+            </ul>
+        </div>
+    </nav>
 
-        <main class="py-4">
+        <main class="py-4 container shadow-lg mx-auto mt-20">
             @yield('content')
         </main>
-    </div>
+</div>
 </body>
 </html>

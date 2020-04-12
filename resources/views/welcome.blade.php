@@ -4,14 +4,17 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Svara Planing</title>
+        <title>{{ config('app.name', 'Svara Planing') }}</title>
         <meta name="author" content="George Yankov">
+
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <!-- Styles -->
         <link rel="stylesheet" href="{{mix('/css/app.css')}}">
     </head>
-    <body class="bg-gray-400 font-sans leading-normal tracking-normal">
+    <body class="bg-gray-400 font-sans tracking-normal" style="line-height: 0;">
 
         <nav class="flex items-center justify-between flex-wrap bg-gray-800 p-6 fixed w-full z-10 top-0">
             <div class="flex items-center flex-shrink-0 text-white mr-6">
@@ -26,30 +29,30 @@
                 </button>
             </div>
 
-            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
+            <div class="w-full flex-grow lg:flex items-center w-auto block" id="nav-content">
                 <ul class="list-reset lg:flex justify-end flex-1 items-center">
-                    <li class="mr-3">
-                        <a class="inline-block py-2 px-4 text-white no-underline" href="#">Voting Room</a>
+                    <li class="mr-3 pt-2">
+                        <a class="inline-block px-4 text-white no-underline" href="{{route('voting_room')}}">Voting Room</a>
                     </li>
-                    <li class="mr-3">
-                        <a class="inline-block py-2 px-4 text-white no-underline" href="#">History</a>
+                    <li class="mr-3 pt-2">
+                        <a class="inline-block px-4 text-white no-underline" href="{{route('history')}}">History</a>
                     </li>
-                    <li class="mr-3">
-                        <a class="inline-block py-2 px-4 text-white no-underline" href="#">Scrum Planing</a>
+                    <li class="mr-3 pt-2">
+                        <a class="inline-block px-4 text-white no-underline" href="{{route('scrum_planing')}}">Scrum Planing</a>
                     </li>
                     @if (Route::has('login'))
 
                         @auth
-                            <li class="mr-3">
-                                    <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="{{url('/home')}}">Home</a>
+                            <li class="mr-3 pt-2">
+                                    <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline px-4" href="{{url('/home')}}">Home</a>
                             </li>
                         @else
-                            <li class="mr-3">
-                                <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="{{route('login')}}">Login</a>
+                            <li class="mr-3 pt-2">
+                                <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline px-4" href="{{route('login')}}">Login</a>
                             </li>
                             @if(Route::has('register'))
-                            <li class="mr-3">
-                                <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="{{route('register')}}">Register</a>
+                            <li class="mr-3 pt-2">
+                                <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline px-4" href="{{route('register')}}">Register</a>
                             </li>
                             @endif
                         @endauth
@@ -57,22 +60,9 @@
                 </ul>
             </div>
         </nav>
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
 
         <div class="container shadow-lg mx-auto bg-white mt-24 md:mt-18">
-            <div>
+            <div id="app">
                 dzag
             </div>
         </div>
