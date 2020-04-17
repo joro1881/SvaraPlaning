@@ -1,6 +1,6 @@
-@extends('layouts.app');
+@extends('layouts.app')
 @section('content')
-    <div>
-        dzag history
+    <div class="container mx-auto">
+        <div>Planing name - date </div>
     </div>
 @endsection

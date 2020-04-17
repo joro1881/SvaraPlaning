@@ -1,4 +1,4 @@
-@extends('layouts.app');
+@extends('layouts.app')
 @section('content')
     <div class="flex justify-between mt-4">
         <div class="flex flex-col justify-center w-full h-full">

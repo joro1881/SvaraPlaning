@@ -2,7 +2,7 @@
 
 namespace App\Models\VO;
 
-class CardAlgoritm
+class EvaluationRule
 {
     // constructor
 
