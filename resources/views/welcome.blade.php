@@ -14,22 +14,23 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{mix('/css/app.css')}}">
     </head>
-    <body class="bg-gray-400 font-sans tracking-normal" style="line-height: 0;">
+    <body class="bg-gray-400 font-sans tracking-normal">
 
-        <nav class="flex items-center justify-between flex-wrap bg-gray-800 p-6 fixed w-full z-10 top-0">
-            <div class="flex items-center flex-shrink-0 text-white mr-6">
-                <a class="text-white no-underline hover:text-white hover:no-underline" href="#">
-                    <span class="text-2xl pl-2"><i class="em em-grinning"></i>Svara Planing</span>
+        <nav class="flex items-center justify-between flex-wrap bg-gray-800 p-6">
+            <div class="text-white mr-6">
+                <a class="text-white no-underline hover:text-white hover:no-underline" href="{{url('/')}}">
+                    <span class="text-2xl pl-2">Svara Planing</span>
                 </a>
             </div>
 
             <div class="block lg:hidden">
                 <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-white hover:border-white">
-                    <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+                    <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
                 </button>
             </div>
 
-            <div class="w-full flex-grow lg:flex items-center w-auto block" id="nav-content">
+            <div id="nav-content">
                 <ul class="list-reset lg:flex justify-end flex-1 items-center">
                     <li class="mr-3 pt-2">
                         <a class="inline-block px-4 text-white no-underline" href="{{route('voting_room')}}">Voting Room</a>
@@ -61,13 +62,13 @@
             </div>
         </nav>
 
-        <div class="container mx-auto mt-24 md:mt-18">
+        <div class="container text-2xl mx-auto mt-4">
             <div>
-                <h2>Hello mates, ... you have a <span style="color:darkred">plan</span>  ?</h2>
+                <h2>Hello mates, ... you have a <span style="color:darkred">plan</span>, xm ?</h2>
                 <h2>Are you brave enough to bet on it ? </h2>
                 <br>
                 <p>
-                    <img class="w-9/12" src="{{asset('images/shallwe.gif')}}" alt="animated">
+                    <img class="w-9/12"  src="{{asset('images/shallwe.gif')}}" alt="animated">
                 </p>
             </div>
         </div>
