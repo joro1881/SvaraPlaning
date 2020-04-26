@@ -12,6 +12,7 @@
                     <div class="py-2 px-4 w-1/2 items-center">13</div>
                     <div class="py-2 px-4 w-1/2 items-center">20</div>
                     <div class="py-2 px-4 w-1/2 items-center">40</div>
+                    <div class="py-2 px-4 w-1/2 items-center">pass</div>
                 </div>
                 <div  id="bet-table" class="flex flex-col justify-between w-full">
                 <div class="flex flex-col flex-wrap items-center relative">
@@ -73,6 +74,7 @@
 
         <section id="dealer-seat" class="border items-center border-2 border-red-500">
             <div class="flex flex-col h-auto m-2">
+                <div>velocity 0 / 35</div>
                 <div class="w-full justify-evenly">
                     <span class="w-1/3">Round</span>
                     <button class="w-1/3">Start</button>

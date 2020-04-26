@@ -29,6 +29,12 @@ class CreateUserStoriesTable extends Migration
      */
     public function down()
     {
+        // Schema::table(
+        //     'user_stories',
+        //     function (Blueprint $table) {
+        //         $table->dropForeign(['planing_id']);
+        //     }
+        // );
         Schema::dropIfExists('user_stories');
     }
 }
